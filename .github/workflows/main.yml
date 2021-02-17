@@ -17,21 +17,10 @@ jobs:
         GITHUB_LOGIN: zeilou
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       run: python3 main.py
-    - name: config git info
-      run: |
-        git config --global user.email "lingyinziluo@163.com"
-        git config --global user.name "zeilou"
-    - name: commit change
-      run: |
-        git checkout master
-        git add .
-        git commit -m "Update from Github Action"
-    - name: done
-      run: echo 'done'
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         FOLDER: .
-        BRANCH: master
+        BRANCH: gh-pages
 
