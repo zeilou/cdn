@@ -17,10 +17,13 @@ jobs:
         GITHUB_LOGIN: zeilou
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       run: python3 main.py
+    - name: Commit files
+      run: |
+        git config --local user.email "zeilou.github.io"
+        git config --local user.name "zeilou"
+        git commit -m "movies updated" -a
     - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.TOKEN }}
-        FOLDER: .
-        BRANCH: gh-pages
-
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.TOKEN }}
+        branch: gh-pages
