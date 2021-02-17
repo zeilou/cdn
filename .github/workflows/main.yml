@@ -33,4 +33,5 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         FOLDER: .
+        BRANCH: master
 
