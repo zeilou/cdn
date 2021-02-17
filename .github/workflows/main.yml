@@ -15,7 +15,7 @@ jobs:
     - name: run python script
       env:
         GITHUB_LOGIN: zeilou
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       run: python3 main.py
     - name: config git info
       run: |
@@ -29,7 +29,7 @@ jobs:
     - name: push change
       env:
         GITHUB_LOGIN: zeilou
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       run: |
         git push https://$GITHUB_LOGIN:$GITHUB_TOKEN@github.com/cdn.git
     - name: done
