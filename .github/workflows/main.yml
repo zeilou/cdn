@@ -12,13 +12,10 @@ jobs:
     - name: install dependencies
       run: |
         pip3 install -r requirements.txt
-    - name: run python script
-      env:
-        GITHUB_LOGIN: zeilou
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      run: python3 main.py
+    - uses: JamesIves/github-pages-deploy-action@master
     - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
+      run: | 
+          python3 main.py
       env:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         FOLDER: .
