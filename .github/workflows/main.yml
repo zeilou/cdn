@@ -14,10 +14,10 @@ jobs:
         pip3 install -r requirements.txt
     - uses: JamesIves/github-pages-deploy-action@master
     - name: Build and Deploy
-      run: | 
-          python3 main.py
       env:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         FOLDER: .
         BRANCH: gh-pages
+      run: | 
+          python3 main.py
 
