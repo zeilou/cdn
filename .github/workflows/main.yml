@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, issue_comment]
+on: [push]
 
 jobs:
   build:
@@ -34,3 +34,12 @@ jobs:
         git push https://$GITHUB_LOGIN:$GITHUB_TOKEN@github.com/cdn.git
     - name: done
       run: echo 'done'
+    - name: Deploy 🚀
+    - uses: JamesIves/github-pages-deploy-action@4.0.0
+      env:
+        GITHUB_LOGIN: zeilou
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with: 
+        folder: . # The folder the action should deploy.
+        token: GITHUB_TOKEN
+ 
