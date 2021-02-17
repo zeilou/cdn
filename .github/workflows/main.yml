@@ -26,12 +26,6 @@ jobs:
         git checkout master
         git add .
         git commit -m "Update from Github Action"
-    - name: push change
-      env:
-        GITHUB_LOGIN: zeilou
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      run: |
-        git push https://$GITHUB_LOGIN:$GITHUB_TOKEN@github.com/cdn.git
     - name: done
       run: echo 'done'
     - name: Build and Deploy
